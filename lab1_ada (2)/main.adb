@@ -11,7 +11,7 @@ procedure Main is
    Can_Stop : My_Boolean_Array := (others => False);
    pragma Volatile(Can_Stop);
 
-   task type Breaker is
+   task type Breaker is //зупинки мыж потоками
       entry Start(Timers : Stop_Durations);
    end Breaker;
 
@@ -53,7 +53,7 @@ procedure Main is
       end loop;
    end Breaker;
 
-   task type MyThread is
+   task type MyThread is //відповідаєє за окремий потік
       entry Start(Id : in Integer);
       entry Finish(Sum : out Long_Long_Integer);
    end MyThread;
